@@ -3,6 +3,7 @@ const routerApp = express.Router();
 
 const appAlunos = require("../apps/alunos/controller/ctlAlunos");
 const appCursos = require("../apps/cursos/controller/ctlCursos");
+const appEscola = require("../apps/escola/controller/ctlEscola");
 const appLogin = require("../apps/login/controller/ctlLogin");
 
 // middleware that is specific to this router
@@ -27,6 +28,13 @@ routerApp.post("/GetCursoByID", appCursos.GetCursoByID);
 routerApp.post("/InsertCursos", appCursos.InsertCursos);
 routerApp.post("/UpdateCursos", appCursos.UpdateCursos);
 routerApp.post("/DeleteCursos", appCursos.DeleteCursos);
+
+//Rotas de Escola
+routerApp.get("/GetAllEscola", appLogin.AutenticaJWT, appEscola.GetAllEscola);
+routerApp.post("/GetEscolaByID", appLogin.AutenticaJWT, appEscola.GetEscolaByID);
+routerApp.post("/InsertEscola", appLogin.AutenticaJWT, appEscola.InsertEscola);
+routerApp.post("/UpdateEscola", appLogin.AutenticaJWT, appEscola.UpdateEscola);
+routerApp.post("/DeleteEscola", appLogin.AutenticaJWT, appEscola.DeleteEscola);
 
 // Rota Login
 routerApp.post("/Login", appLogin.Login);

@@ -77,3 +77,14 @@ insert into pedidos values
  (default, 234, '2020-01-31', 6891.60, (SELECT clienteid from CLIENTES where codigo = 'CLI01'))
  ON CONFLICT DO NOTHING;
 
+create table IF NOT EXISTS escola (
+    escolaid bigserial constraint pk_escola PRIMARY KEY,
+    codigo varchar(50) UNIQUE,
+    nome VARCHAR(60),
+    dataAbertura date,
+    deleted boolean DEFAULT false
+);
+
+insert into escola values 
+ (default, 'ESL50', 'teste123', '2020-01-31')
+ ON CONFLICT DO NOTHING;
