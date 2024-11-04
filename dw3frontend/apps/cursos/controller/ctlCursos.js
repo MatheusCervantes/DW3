@@ -35,7 +35,7 @@ const manutCursos = async (req, res) =>
       return;
     }
 
-    res.render("Cursos/view/vwManutCursos.njk", {
+    res.render("cursos/view/vwManutCursos.njk", {
       title: "Manutenção de cursos",
       data: resp.data.registro,
       erro: null,
